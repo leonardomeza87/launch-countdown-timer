@@ -1,0 +1,509 @@
+@use "sass:math";
+
+// Colors
+
+// Primary
+
+$grayish-blue: hsl(237, 18%, 59%);
+$soft-red: hsl(345, 95%, 68%);
+
+// Neutral
+
+$white: hsl(0, 0%, 100%);
+$dark-desaturated-blue: hsl(236, 21%, 26%);
+$very-dark-blue: hsl(235, 16%, 14%);
+$very-dark-purple: #241c2b;
+$dark: hsl(234, 17%, 12%);
+
+$flip-top: #2c2c44;
+$flip-bottom: #34364f;
+
+//Other
+$border: 8px;
+
+$hole: 12px;
+$half-hole: math.div($hole, 2);
+
+html {
+  height: calc(var(--vh, 1vh) * 100);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  // height: calc(var(--vh, 1vh) * 100);
+  width: 100%;
+  background-color: $very-dark-blue;
+
+  background-image: url("./images/pattern-hills.svg"),
+    url("./images/bg-stars.svg"),
+    linear-gradient(to bottom, $very-dark-blue, $very-dark-purple);
+  background-repeat: no-repeat, repeat;
+  background-size: 100% auto, auto;
+  background-position: bottom;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-size: 22px;
+    line-height: 22px;
+    margin-bottom: 5rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: $white;
+
+    letter-spacing: 8px;
+  }
+}
+
+// Flip Clock
+.countdownTimer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.group {
+  margin: 1rem;
+  text-align: center;
+
+  h3 {
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: 5px;
+    color: $grayish-blue;
+  }
+}
+
+.counter {
+  width: 148px;
+  height: 140px;
+  position: relative;
+  background: linear-gradient(
+    to bottom,
+    transparent 20%,
+    $dark 20% 75%,
+    transparent 75%
+  );
+  // perspective: 800px;
+  transform: perspective(450px);
+  transform-style: preserve-3d;
+
+  border-radius: $border;
+  // box-shadow: 0 10px 0 -2px $dark;
+  margin-bottom: 28px;
+
+  color: $soft-red;
+
+  &::before {
+    content: "";
+    display: flex;
+    position: absolute;
+    z-index: -10;
+    top: 10px;
+    width: 100%;
+    height: 100%;
+    border-radius: $border;
+    // overflow: hidden;
+    // filter: blur(0.5px);
+    background-color: $dark;
+  }
+
+  .rear {
+    width: 100%;
+    height: 100%;
+
+    .top {
+      height: 50%;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      border-radius: $border $border 0 0;
+      transform-origin: 50% 100%;
+      z-index: 0;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+
+      p {
+        height: 80px;
+        position: relative;
+        letter-spacing: -2px;
+        z-index: 10;
+        font-size: 80px;
+        line-height: 80px;
+        transform: translateY(49%);
+      }
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -$half-hole;
+        width: $hole;
+        height: $hole;
+        background-color: transparent;
+        border-radius: 50%;
+        box-shadow: 0 -50px 0 100px $flip-top;
+      }
+      &::before {
+        left: -$half-hole;
+      }
+      &::after {
+        right: -$half-hole;
+      }
+    }
+    .bottom {
+      height: 50%;
+      width: 100%;
+      position: relative;
+      background-color: transparent;
+      overflow: hidden;
+      border-radius: 0 0 $border $border;
+      z-index: 0;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      p {
+        height: 80px;
+        position: relative;
+        letter-spacing: -2px;
+        z-index: 10;
+        font-size: 80px;
+        line-height: 80px;
+        transform: translateY(-51%);
+      }
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: -$half-hole;
+        width: $hole;
+        height: $hole;
+        background-color: transparent;
+        border-radius: 50%;
+        box-shadow: 0 50px 0 100px $flip-bottom;
+      }
+      &::before {
+        left: -$half-hole;
+      }
+      &::after {
+        right: -$half-hole;
+      }
+    }
+  }
+
+  .flip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    // z-index: 5;
+    width: 100%;
+    height: 100%;
+    // perspective: 450px;
+    transform: perspective(450px);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    .front {
+      height: 50%;
+      width: 100%;
+
+      position: relative;
+      background-color: transparent;
+      overflow: hidden;
+      border-radius: $border $border 0 0;
+      transform-origin: 50% 100%;
+      z-index: 10;
+
+      backface-visibility: hidden;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+
+      p {
+        height: 80px;
+        position: relative;
+        letter-spacing: -2px;
+        z-index: 10;
+        font-size: 80px;
+        line-height: 80px;
+        transform: translateY(49%);
+      }
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -$half-hole;
+        width: $hole;
+        height: $hole;
+        background-color: transparent;
+        border-radius: 50%;
+        box-shadow: 0 -50px 0 100px $flip-top;
+      }
+      &::before {
+        left: -$half-hole;
+      }
+      &::after {
+        right: -$half-hole;
+      }
+    }
+
+    .behind {
+      height: 50%;
+      width: 100%;
+
+      position: relative;
+      background-color: transparent;
+      overflow: hidden;
+      border-radius: 0 0 $border $border;
+      transform-origin: 50% 0%;
+      z-index: 10;
+      top: 0;
+
+      transform: rotateX(90deg);
+      backface-visibility: hidden;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      p {
+        height: 80px;
+        position: relative;
+        letter-spacing: -2px;
+        z-index: 10;
+        font-size: 80px;
+        line-height: 80px;
+        transform: translateY(-51%);
+      }
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: -$half-hole;
+        width: $hole;
+        height: $hole;
+        background-color: transparent;
+        border-radius: 50%;
+        box-shadow: 0 50px 0 100px $flip-bottom;
+      }
+      &::before {
+        left: -$half-hole;
+      }
+      &::after {
+        right: -$half-hole;
+      }
+    }
+  }
+}
+
+//Animations
+.animationTop {
+  animation: flip-top 0.2s linear forwards;
+  backface-visibility: hidden;
+}
+
+.animationBottom {
+  animation: flip-bottom 0.5s cubic-bezier(0.45, 1.76, 0.43, 0.48) forwards;
+}
+
+@keyframes flip-top {
+  0% {
+    transform: rotateX(0);
+  }
+  100% {
+    transform: rotateX(-90deg);
+  }
+}
+
+@keyframes flip-bottom {
+  0% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX(0);
+  }
+}
+
+.social {
+  margin-top: 5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .icon {
+    margin: 0 3px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    overflow: hidden;
+
+    fill: $grayish-blue;
+
+    transition: background-color 0.2s ease-in-out;
+
+    a {
+      color: $grayish-blue;
+      text-decoration: none;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    svg,
+    svg path {
+      transition-property: fill, color;
+      transition-duration: 0.2s;
+      transition-timing-function: ease-in-out;
+    }
+
+    &:hover {
+      transition: none;
+      background-color: rgba($color: #000000, $alpha: 0.2);
+
+      svg {
+        transition-duration: 0s;
+        fill: $soft-red;
+
+        path {
+          transition-duration: 0s;
+          fill: $soft-red;
+        }
+      }
+    }
+
+    &:first-child,
+    &:nth-child(2) {
+      svg {
+        width: 28px;
+        height: 28px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) and (min-height: 640px) {
+  .app {
+    margin-top: -13.25rem;
+
+    h1 {
+      margin-bottom: 5.75rem;
+    }
+  }
+
+  .social {
+    position: absolute;
+    bottom: 58px;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  body {
+    background-size: auto;
+    background-position: bottom right 15%, bottom;
+  }
+
+  .app {
+    margin-top: -13.25rem;
+
+    h1 {
+      margin-bottom: 5.75rem;
+      padding: 0 2rem;
+      width: 100%;
+    }
+  }
+
+  .social {
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 58px;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  html {
+    $border: 4px;
+  }
+
+  .app {
+    h1 {
+      font-size: 18px;
+      line-height: 23px;
+    }
+  }
+
+  .group {
+    margin: 0.5rem;
+
+    h3 {
+      font-size: 7px;
+      line-height: 7px;
+      letter-spacing: 3px;
+    }
+  }
+
+  .counter {
+    width: 70px;
+    height: 68px;
+    margin-bottom: 16px;
+
+    &::before {
+      top: 5px;
+      width: 100%;
+      height: 100%;
+    }
+
+    .rear {
+      .top,
+      .bottom {
+        p {
+          font-size: 36px;
+        }
+      }
+    }
+    .flip {
+      .front,
+      .behind {
+        p {
+          font-size: 36px;
+        }
+      }
+    }
+  }
+
+  .social {
+    padding-bottom: 35px;
+  }
+}
