@@ -63,6 +63,9 @@ body {
     color: $white;
 
     letter-spacing: 8px;
+
+    opacity: 0;
+    animation: appear 0.2s ease-in-out forwards 0.2s;
   }
 }
 
@@ -82,12 +85,18 @@ body {
     line-height: 14px;
     letter-spacing: 5px;
     color: $grayish-blue;
+
+    opacity: 0;
+    animation: appear 0.2s ease-in-out forwards 0.8s;
   }
 }
 
 .counter {
   width: 148px;
   height: 140px;
+
+  opacity: 0;
+  animation: appear 0.4s ease-in-out forwards 0.4s;
 
   position: relative;
   background: linear-gradient(
@@ -319,6 +328,17 @@ body {
   }
 }
 
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .animationTop {
   animation: flip-top 0.2s linear forwards;
 }
@@ -333,6 +353,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  opacity: 0;
+  animation: appear 0.2s ease-in-out forwards 1s;
 
   .icon {
     margin: 0 3px;

@@ -32,7 +32,7 @@ So far I did not know how to make a hole in a normal element, seeing that the de
 
 ### Useful resources
 
-- [Creating a hole in a <div> element](https://stackoverflow.com/questions/4344906/creating-a-hole-in-a-div-element)
+- [Creating a hole in a div element](https://stackoverflow.com/questions/4344906/creating-a-hole-in-a-div-element)
 - [The trick to viewport units on mobile](https://css-tricks.com/the-trick-to-viewport-units-on-mobile/)
 
 ### More about me

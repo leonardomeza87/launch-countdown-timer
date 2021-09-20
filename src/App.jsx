@@ -14,6 +14,10 @@ const goal = () => {
   let date = new Date(Date.now());
   date.setDate(date.getDate() + daysGoal);
 
+  //Start animation time
+  date.setSeconds(date.getSeconds() + 1);
+  date.setMilliseconds(date.getMilliseconds() + 200);
+
   return date;
 };
 
@@ -50,11 +54,15 @@ function App() {
   };
 
   useEffect(() => {
-    clock();
+    let tick = null;
 
-    const tick = setInterval(() => {
+    setTimeout(() => {
       clock();
-    }, 1000);
+
+      tick = setInterval(() => {
+        clock();
+      }, 1000);
+    }, 1200);
 
     return () => {
       clearInterval(tick);
