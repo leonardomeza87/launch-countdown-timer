@@ -24,20 +24,6 @@ function App() {
     setTargetDate(goal());
   }, []);
 
-  useEffect(() => {
-    // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
-    let vh = window.innerHeight * 0.01;
-    // Then we set the value in the --vh custom property to the root of the document
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
-
-    // We listen to the resize event
-    window.addEventListener("resize", () => {
-      // We execute the same script as before
-      let vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty("--vh", `${vh}px`);
-    });
-  }, []);
-
   const [days, setDays] = useState(14);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
@@ -57,8 +43,6 @@ function App() {
     let m = Math.floor((gap % hour) / minute);
     let s = Math.floor((gap % minute) / second);
 
-    // console.log(d, h, m, s);
-
     setDays(d);
     setHours(h);
     setMinutes(m);
@@ -76,11 +60,6 @@ function App() {
       clearInterval(tick);
     };
   }, []);
-
-  // //Test
-  // useEffect(() => {
-  //   console.log("a");
-  // }, [days]);
 
   return (
     <main className="app">

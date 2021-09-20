@@ -26,9 +26,14 @@ Users should be able to:
 - Desktop-first workflow.
 - [React](https://reactjs.org/) - JS library.
 
+### What I learned
+
+So far I did not know how to make a hole in a normal element, seeing that the design of the counter had one I had my serious doubts about whether to simply paint it on the card or make a real hole, the result was that, looking at stackoverflow, I found a really new technique for me, and I think the result was pretty cool.
+
 ### Useful resources
 
-- Stackoverflow
+- [Creating a hole in a <div> element](https://stackoverflow.com/questions/4344906/creating-a-hole-in-a-div-element)
+- [The trick to viewport units on mobile](https://css-tricks.com/the-trick-to-viewport-units-on-mobile/)
 
 ### More about me
 
