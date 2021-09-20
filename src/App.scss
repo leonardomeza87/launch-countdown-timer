@@ -100,6 +100,9 @@ body {
   // box-shadow: 0 10px 0 -2px $dark;
   margin-bottom: 28px;
 
+  //Avoid that, when selecting a text, on a smartphone, the layout of the text is broken
+  user-select: none;
+
   color: $soft-red;
 
   &::before {
@@ -491,6 +494,34 @@ body {
         p {
           font-size: 36px;
         }
+
+        &::before,
+        &::after {
+          width: 6px;
+          height: 6px;
+        }
+
+        &::before {
+          left: -3px;
+        }
+        &::after {
+          right: -3px;
+        }
+      }
+
+      .top {
+        &::before,
+        &::after {
+          bottom: -3px;
+          box-shadow: 0 -20px 0 40px $flip-top;
+        }
+      }
+      .bottom {
+        &::before,
+        &::after {
+          top: -3px;
+          box-shadow: 0 20px 0 40px $flip-bottom;
+        }
       }
     }
     .flip {
@@ -498,6 +529,34 @@ body {
       .behind {
         p {
           font-size: 36px;
+        }
+
+        &::before,
+        &::after {
+          width: 6px;
+          height: 6px;
+        }
+
+        &::before {
+          left: -3px;
+        }
+        &::after {
+          right: -3px;
+        }
+      }
+
+      .front {
+        &::before,
+        &::after {
+          bottom: -3px;
+          box-shadow: 0 -20px 0 40px $flip-top;
+        }
+      }
+      .behind {
+        &::before,
+        &::after {
+          top: -3px;
+          box-shadow: 0 20px 0 40px $flip-bottom;
         }
       }
     }
