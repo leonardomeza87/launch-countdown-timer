@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/launch-countdown-timer/static/css/main.4221bbf5.chunk.css",
-    "main.js": "/launch-countdown-timer/static/js/main.cf7c1a2f.chunk.js",
-    "main.js.map": "/launch-countdown-timer/static/js/main.cf7c1a2f.chunk.js.map",
+    "main.css": "/launch-countdown-timer/static/css/main.4963860f.chunk.css",
+    "main.js": "/launch-countdown-timer/static/js/main.0ad3b1d3.chunk.js",
+    "main.js.map": "/launch-countdown-timer/static/js/main.0ad3b1d3.chunk.js.map",
     "runtime-main.js": "/launch-countdown-timer/static/js/runtime-main.8608b70b.js",
     "runtime-main.js.map": "/launch-countdown-timer/static/js/runtime-main.8608b70b.js.map",
     "static/js/2.455860bd.chunk.js": "/launch-countdown-timer/static/js/2.455860bd.chunk.js",
     "static/js/2.455860bd.chunk.js.map": "/launch-countdown-timer/static/js/2.455860bd.chunk.js.map",
     "index.html": "/launch-countdown-timer/index.html",
-    "static/css/main.4221bbf5.chunk.css.map": "/launch-countdown-timer/static/css/main.4221bbf5.chunk.css.map",
+    "static/css/main.4963860f.chunk.css.map": "/launch-countdown-timer/static/css/main.4963860f.chunk.css.map",
     "static/js/2.455860bd.chunk.js.LICENSE.txt": "/launch-countdown-timer/static/js/2.455860bd.chunk.js.LICENSE.txt",
     "static/media/App.scss": "/launch-countdown-timer/static/media/pattern-hills.815d688f.svg",
     "static/media/icon-github.845124f2.svg": "/launch-countdown-timer/static/media/icon-github.845124f2.svg",
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.8608b70b.js",
     "static/js/2.455860bd.chunk.js",
-    "static/css/main.4221bbf5.chunk.css",
-    "static/js/main.cf7c1a2f.chunk.js"
+    "static/css/main.4963860f.chunk.css",
+    "static/js/main.0ad3b1d3.chunk.js"
   ]
 }
